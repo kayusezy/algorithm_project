@@ -1,0 +1,38 @@
+def analyze_sentence(sentence):
+    //# Initialize counters
+    sentence_length = 0
+    word_count = 0
+    vowel_count = 0
+    
+    //# Define vowels
+    vowels = "aeiouAEIOU"
+    
+    //# Iterate through each character in the sentence
+    for char in sentence:
+        //# Increase sentence length counter for each character (excluding the ending point)
+        if char != '.':
+            sentence_length += 1
+        
+        //# Check for space to count words
+        if char == ' ':
+            word_count += 1
+        
+        //# Check if character is a vowel
+        if char in vowels:
+            vowel_count += 1
+    
+    //# Adjust word count (add 1 for the last word since it's not followed by a space)
+    word_count += 1
+    
+    //# Return results
+    return sentence_length, word_count, vowel_count
+
+//# Example sentence with 20 words ending with a point
+sentence = "This is an example sentence with 20 words."
+length, words, vowels = analyze_sentence(sentence)
+
+//# Print results
+print("Sentence:", sentence)
+print("Length of the sentence (excluding the point):", length)
+print("Number of words in the sentence:", words)
+print("Number of vowels in the sentence:", vowels)
